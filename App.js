@@ -11,14 +11,35 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
+        <Text>Awesome Project Home Screen</Text>
       </View>
     );
   }
 }
 
-export default createStackNavigator({
-  Home: {
-    screen: HomeScreen
-  },
-});
+
+  class DetailsScreen extends React.Component {
+    render(){
+      return (
+        <View styles ={{ flex:1, alighnItems: 'center', justifyContent: 'center'}}>
+          <Text>Instructions</Text>
+        </View>
+        );
+     }
+    }
+
+    const RootStack = createStackNavigator(
+      {
+        Home: HomeScreen,
+        Details: DetailsScreen,
+        },
+        {
+         initialRoutneName: 'Home',
+         }
+        );
+
+export default class App extends React.Component {
+ render() {
+   return <RootStack />;
+    }
+   }
