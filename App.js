@@ -7,11 +7,14 @@ import React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+
 class HomeScreen extends React.Component {
-  static navigationOptions = {
-    titles: 'QuestionSwap',
-    };
-    }
+
+static navigationOptions = {
+    title: 'Home',
+  };
+
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -32,6 +35,11 @@ class HomeScreen extends React.Component {
 
 
   class InstructionsScreen extends React.Component {
+     static navigationOptions = {
+       title: 'Instructions'
+ };
+
+
     render(){
       const { navigation } = this.props;
       const itemId = navigation.getParam('itemId', 'NO-ID');
@@ -62,7 +70,7 @@ class HomeScreen extends React.Component {
      }
     }
 
-    const RootStack = createStackNavigator(
+  const RootStack = createStackNavigator(
       {
         Home: HomeScreen,
         Instructions: InstructionsScreen,
