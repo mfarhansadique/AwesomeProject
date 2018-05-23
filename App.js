@@ -1,87 +1,58 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 import React from 'react';
-import { Button, View, Text } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
-
+import { Button, Text, View } from 'react-native';
+import { createBottomTabNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
+ render(){
+  return(
+  <View style = {{ flex:1, justifyContent: 'center', alignItems: 'center'}}>
+   <Text> Latest Updates </Text>
+   </View>
 
-static navigationOptions = {
-    title: 'Home',
-  };
+  );
 
-
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Awesome Project Home Screen</Text>
-        <Button
-         title="Go to Instructions"
-         onPress={() => {
-         this.props.navigation.navigate('Instructions',{
-          itemID: 86,
-          otherParam: 'anything',
-         });
-         }}
-       />
-      </View>
-    );
   }
-}
+ }
 
+ class CategoriesScreen extends React.Component {
+  render(){
+   return(
+   <View style = {{ flex:1, justifyContent: 'center', alignItems: 'center'}}>
+    <Text> Categories </Text>
+    </View>
 
-  class InstructionsScreen extends React.Component {
-     static navigationOptions = {
-       title: 'Instructions'
- };
+   );
 
+   }
+  }
 
+   class RecentScreen extends React.Component {
     render(){
-      const { navigation } = this.props;
-      const itemId = navigation.getParam('itemId', 'NO-ID');
-      const otherParam = navigation.getParam('otherParam', 'some default value');
+     return(
+     <View style = {{ flex:1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text> Recent </Text>
+      </View>
 
-      return (
-        <View styles ={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text>Instructions</Text>
-          <Text>ItemId: {JSON.stringify(itemId)}</Text>
-          <Text>otherParam: {JSON.stringify(otherParam)}</Text>
-          <Button
-          title="Go to Instructions again"
-          onPress={() =>
-          this.props.navigation.push('Instructions', {
-          itemId: Math.floor(Math.random() * 100),
-          })}
-          />
-          <Button
-            title="go home"
-            onPress={() => this.props.navigation.navigate('Home')}
-            />
-          <Button
-            title = "Go Back"
-            onPress={() => this.props.navigation.goBack()}
-            />
-        </View>
-        );
+     );
+
      }
     }
 
-  const RootStack = createStackNavigator(
-      {
-        Home: HomeScreen,
-        Instructions: InstructionsScreen,
-        },
-        {
-         initialRoutneName: 'Home',
-         }
-        );
+     class SettingsScreen extends React.Component {
+      render(){
+       return(
+       <View style = {{ flex:1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text> Settings </Text>
+        </View>
 
-export default class App extends React.Component {
- render() {
-   return <RootStack />;
-    }
-   }
+       );
+
+       }
+      }
+
+  export default createBottomTabNavigator({
+    Home: HomeScreen,
+    Categories: CategoriesScreen,
+    Recent: RecentScreen,
+    Settings: SettingsScreen,
+  });
