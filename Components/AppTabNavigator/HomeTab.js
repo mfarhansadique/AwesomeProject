@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
-import {Icon} from 'native-base'
+import {Icon, Container, Content, Header, Body, Button} from 'native-base'
 
 
 class HomeTab extends React.Component {
@@ -18,10 +18,26 @@ tabBarIcon: ({tintColor}) => (
 
  render(){
  return(
-<View style={styles.container}>
-  <Text> HomeTab </Text>
-  </View>
+<Container style={{ flex:1, backgroundColor: 'white'}}>
 
+<Header>
+<Body><Text> Home </Text></Body>
+</Header>
+<Content>
+<View style={{flexDirection: 'row', alignItems: 'center'}}>
+
+<Button borded light
+style = {{flex: 3, marginLeft: 0, justifyContent :'center', height: 40}}>
+<Text>Latest Updates</Text></Button>
+<Button borded light
+style = {{flex: 3, marginLeft: 0, justifyContent :'center', height: 40}}><Text>Popular</Text></Button>
+</View>
+
+
+
+
+</Content>
+</Container>
  );
 }
 }

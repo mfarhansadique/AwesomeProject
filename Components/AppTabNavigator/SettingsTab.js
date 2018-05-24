@@ -10,7 +10,7 @@ class SettingsTab extends React.Component {
 
 static navigationOptions = {
 tabBarIcon: ({tintColor}) => (
-<Icon name = "ios-settings" style={{color: tintColor}}/>
+<Icon name = "ios-cog" style={{color: tintColor}}/>
 
 )
 }

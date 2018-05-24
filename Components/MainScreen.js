@@ -3,20 +3,21 @@ import {
   View,
   Text,
   StyleSheet,
+  Platform
 } from 'react-native';
 import HomeTab from './AppTabNavigator/HomeTab'
 import CategoriesTab from './AppTabNavigator/CategoriesTab'
 import RecentTab from './AppTabNavigator/RecentTab'
 import SettingsTab from './AppTabNavigator/SettingsTab'
 import {TabNavigator} from 'react-navigation'
-import { Icon } from 'native-base'
+import { Icon, Container, Content, Header, Body, Button } from 'native-base'
 
 
 class MainScreen extends React.Component {
 
    static navigationOptions = {
 
-   title: "Home"
+  header: null,
 
    }
 
@@ -48,6 +49,12 @@ export default MainScreen
   swipeEnabled:false,
   tabBarPosition:"bottom",
   tabBarOptions: {
+  style: {
+  ...Platform.select({
+  android:{
+    backgroundColor: 'white'
+  }
+  })},
   activeTintColor:'#09a1e2',
   inactiveTintColor: '#d1cece',
   showLabel: false,
