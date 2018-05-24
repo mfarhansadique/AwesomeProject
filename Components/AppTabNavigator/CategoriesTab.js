@@ -4,8 +4,17 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import {Icon} from 'native-base'
 
 class CatergoriesTab extends React.Component {
+
+static navigationOptions = {
+tabBarIcon: ({tintColor}) => (
+<Icon name = "ios-book" style={{color: tintColor}}/>
+
+)
+}
+
  render(){
  return(
 <View style={styles.container}>

@@ -5,11 +5,11 @@ import {
   StyleSheet,
 } from 'react-native';
 import HomeTab from './AppTabNavigator/HomeTab'
-import CatergoriesTab from './AppTabNavigator/CatergoriesTab'
+import CategoriesTab from './AppTabNavigator/CategoriesTab'
 import RecentTab from './AppTabNavigator/RecentTab'
 import SettingsTab from './AppTabNavigator/SettingsTab'
 import {TabNavigator} from 'react-navigation'
-import { icon } from 'native-base'
+import { Icon } from 'native-base'
 
 
 class MainScreen extends React.Component {
@@ -22,9 +22,7 @@ class MainScreen extends React.Component {
 
  render(){
  return(
-<View style={styles.container}>
-  <Text> MainScreen </Text>
-  </View>
+  <AppTabNavigator />
 
  );
 }
@@ -34,16 +32,29 @@ export default MainScreen
   const AppTabNavigator = TabNavigator ({
   HomeTab:{
     screen: HomeTab
-    }
+    },
   CategoriesTab:{
      screen: CategoriesTab
-    }
+    },
   RecentTab:{
       screen: RecentTab
-     }
+     },
    SettingsTab:{
        screen: SettingsTab
      }
+
+  },{
+  animationEnabled:false,
+  swipeEnabled:false,
+  tabBarPosition:"bottom",
+  tabBarOptions: {
+  activeTintColor:'#09a1e2',
+  inactiveTintColor: '#d1cece',
+  showLabel: false,
+  showIcon: true
+  }
+
+
 
   })
 

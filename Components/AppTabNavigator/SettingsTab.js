@@ -4,8 +4,17 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import {Icon} from 'native-base'
 
 class SettingsTab extends React.Component {
+
+static navigationOptions = {
+tabBarIcon: ({tintColor}) => (
+<Icon name = "ios-settings" style={{color: tintColor}}/>
+
+)
+}
+
  render(){
  return(
 <View style={styles.container}>

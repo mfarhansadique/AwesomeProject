@@ -4,8 +4,18 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import {Icon} from 'native-base'
+
 
 class HomeTab extends React.Component {
+
+static navigationOptions = {
+tabBarIcon: ({tintColor}) => (
+<Icon name = "ios-home" style={{color: tintColor}}/>
+
+)
+}
+
  render(){
  return(
 <View style={styles.container}>
