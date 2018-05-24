@@ -1,58 +1,27 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
+import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import MainScreen from './Components/MainScreen';
 
-class HomeScreen extends React.Component {
+export default class App extends React.Component {
  render(){
-  return(
-  <View style = {{ flex:1, justifyContent: 'center', alignItems: 'center'}}>
-   <Text> Latest Updates </Text>
-   </View>
+ return(
+<AppStackNavigator />
 
-  );
 
-  }
- }
+ );
+}
+}
 
- class CategoriesScreen extends React.Component {
-  render(){
-   return(
-   <View style = {{ flex:1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text> Categories </Text>
-    </View>
+const AppStackNavigator = StackNavigator({
+Main: {screen: MainScreen}
+})
 
-   );
+ const styles = StyleSheet.create ({
+   container: {
+   flex: 1,
+   alignItems: 'center',
+   justifyContent:'center'},
 
-   }
-  }
 
-   class RecentScreen extends React.Component {
-    render(){
-     return(
-     <View style = {{ flex:1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text> Recent </Text>
-      </View>
-
-     );
-
-     }
-    }
-
-     class SettingsScreen extends React.Component {
-      render(){
-       return(
-       <View style = {{ flex:1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text> Settings </Text>
-        </View>
-
-       );
-
-       }
-      }
-
-  export default createBottomTabNavigator({
-    Home: HomeScreen,
-    Categories: CategoriesScreen,
-    Recent: RecentScreen,
-    Settings: SettingsScreen,
-  });
+ });
