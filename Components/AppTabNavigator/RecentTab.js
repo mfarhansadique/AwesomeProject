@@ -3,29 +3,69 @@ import {
   View,
   Text,
   StyleSheet,
+  Button
 } from 'react-native';
-import {Icon} from 'native-base'
+import { StackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
 class RecentTab extends React.Component {
-
-static navigationOptions = {
-tabBarIcon: ({tintColor}) => (
-<Icon name = "ios-clock" style={{color: tintColor}}/>
-
-)
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+        <Button
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
+      </View>
+    );
+  }
 }
 
- render(){
- return(
-<View style={styles.container}>
-  <Text> RecentTab </Text>
-  </View>
-
- );
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+        <Button
+          title="Go to Details... again"
+          onPress={() => this.props.navigation.push('Details')}
+        />
+        <Button
+          title="Go to Home"
+          onPress={() => this.props.navigation.navigate('Recent')}
+        />
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
+        />
+      </View>
+    );
+  }
 }
+
+const RootStack = StackNavigator(
+  {
+    Recent: {
+      screen: RecentTab,
+    },
+    Details: {
+      screen: DetailsScreen,
+    },
+  },
+  {
+    initialRouteName: 'Recent',
+  }
+);
+
+export default class App extends React.Component {
+  render() {
+    return <RootStack />;
+  }
 }
 
-export default RecentTab;
+
+
+
 
   const styles = StyleSheet.create ({
     container: {

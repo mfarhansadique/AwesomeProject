@@ -6,7 +6,7 @@ import {
   WebView
 } from 'react-native';
 import {Icon, Container, Content, Header, Body, Button} from 'native-base'
-import { createStackNavigator } from 'react-navigation';
+import { StackNavigator } from 'react-navigation';
 
 
 class HomeTab extends React.Component {

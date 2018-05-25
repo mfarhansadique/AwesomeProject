@@ -3,71 +3,132 @@ import {
   View,
   Text,
   StyleSheet,
+  Button,
   WebView
 } from 'react-native';
-import ActionScreen from './CategoryOptions/ActionScreen'
-import {Icon, Container, Content, Header, Body, Button} from 'native-base'
-import { createStackNavigator } from 'react-navigation';
+import { StackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
-class CatergoriesTab extends React.Component {
+class CategoryTab extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+        <Button
+          title="Action"
+          onPress={() => this.props.navigation.navigate('Action')}
+        />
+        <Button
+                  title="Mystery"
+                  onPress={() => this.props.navigation.navigate('Mystery')}
+                />
+                <Button
+                          title="Comedy"
+                          onPress={() => this.props.navigation.navigate('Comedy')}
+                        />
+                        <Button
+                                  title="Fantasy"
+                                  onPress={() => this.props.navigation.navigate('Fantasy')}
+                                />
+                                <Button
+                                          title="Adventure"
+                                          onPress={() => this.props.navigation.navigate('Adventure')}
+                                        />
 
-static navigationOptions = {
-tabBarIcon: ({tintColor}) => (
-<Icon name = "ios-book" style={{color: tintColor}}/>
-
-)
+      </View>
+    );
+  }
 }
 
- render(){
- return(
-<Container style={{ flex:1, backgroundColor: 'white'}}>
+class ActionScreen extends React.Component {
+    render() {
+      return (
+        <WebView
+          source={{uri: 'http://www.mangadeep.com/manga-list/category/Action/most-popular/'}}
+          style={{marginTop: 20}}
+        />
+      );
+    }
+  }
 
-<Header>
-<Body><Text> Catergories </Text></Body>
-</Header>
+class MysteryScreen extends React.Component {
+    render() {
+      return (
+        <WebView
+          source={{uri: 'http://www.mangadeep.com/manga-list/category/Mystery/most-popular/'}}
+          style={{marginTop: 20}}
+        />
+      );
+    }
+  }
 
-<Content>
+  class ComedyScreen extends React.Component {
+      render() {
+        return (
+          <WebView
+            source={{uri: 'http://www.mangadeep.com/manga-list/category/Comedy/most-popular/'}}
+            style={{marginTop: 20}}
+          />
+        );
+      }
+    }
 
+    class FantasyScreen extends React.Component {
+        render() {
+          return (
+            <WebView
+              source={{uri: 'http://www.mangadeep.com/manga-list/category/Fantasy/most-popular/'}}
+              style={{marginTop: 20}}
+            />
+          );
+        }
+      }
 
-<View style={{flexDirection: 'row', alignItems: 'center'}}>
-<Button borded light style = {{flex: 3, marginLeft: 0, justifyContent :'center', height: 40}}
-onPress={() => this.props.navigation.navigate('Action')}>
-<Text> Action </Text>
-</Button>
-</View>
+      class AdventureScreen extends React.Component {
+          render() {
+            return (
+              <WebView
+                source={{uri: 'http://www.mangadeep.com/manga-list/category/Adventure/most-popular/'}}
+                style={{marginTop: 20}}
+              />
+            );
+          }
+        }
 
-<View style={{flexDirection: 'row', alignItems: 'center'}}>
-<Button borded light style = {{flex: 3, marginLeft: 0, justifyContent :'center', height: 40}}>
-<Text> Mystery </Text>
-</Button></View>
+const RootStack = StackNavigator(
+  {
+    Category: {
+      screen: CategoryTab,
+    },
+    Action: {
+      screen: ActionScreen,
+    },
+    Mystery: {
+          screen: MysteryScreen,
+        },
+        Action: {
+              screen: ComedyScreen,
+            },
+            Action: {
+                  screen: FantasyScreen,
+                },
+                Action: {
+                      screen: AdventureScreen,
+                    },
+  },
+  {
+    initialRouteName: 'Category',
+  }
+);
 
-<View style={{flexDirection: 'row', alignItems: 'center'}}>
-<Button borded light style = {{flex: 3, marginLeft: 0, justifyContent :'center', height: 40}}>
-<Text> Fantasy </Text>
-</Button></View>
-
-<View style={{flexDirection: 'row', alignItems: 'center'}}>
-<Button borded light style = {{flex: 3, marginLeft: 0, justifyContent :'center', height: 40}}>
-<Text> Horror </Text>
-</Button></View>
-
-<View style={{flexDirection: 'row', alignItems: 'center'}}>
-<Button borded light style = {{flex: 3, marginLeft: 0, justifyContent :'center', height: 40}}>
-<Text> Adventure </Text>
-</Button>
-</View>
-</Content>
-</Container>
-
- );
+export default class App extends React.Component {
+  render() {
+    return <RootStack />;
+  }
 }
-}
 
 
 
 
-
-export default CatergoriesTab;
 
   const styles = StyleSheet.create ({
     container: {
@@ -75,6 +136,7 @@ export default CatergoriesTab;
     alignItems: 'center',
     justifyContent:'center'},
 
-     });
+ });
+
 
 

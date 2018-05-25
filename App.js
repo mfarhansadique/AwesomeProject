@@ -14,8 +14,7 @@ export default class App extends React.Component {
 }
 
 const AppStackNavigator = StackNavigator({
-Main: {screen: MainScreen},
-Action: {screen: ActionScreen}
+Main: {screen: MainScreen}
 })
 
  const styles = StyleSheet.create ({
@@ -26,10 +25,4 @@ Action: {screen: ActionScreen}
 
 
  });
-
-
-const CategoriesStack = createStackNavigator({
-       Categories: CategoriesTab,
-       Action: ActionScreen,
-     });
 
