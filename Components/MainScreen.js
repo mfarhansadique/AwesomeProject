@@ -5,12 +5,14 @@ import {
   StyleSheet,
   Platform
 } from 'react-native';
-import HomeTab from './AppTabNavigator/HomeTab'
-import CategoriesTab from './AppTabNavigator/CategoriesTab'
-import RecentTab from './AppTabNavigator/RecentTab'
-import SettingsTab from './AppTabNavigator/SettingsTab'
-import {TabNavigator} from 'react-navigation'
-import { Icon, Container, Content, Header, Body, Button } from 'native-base'
+import HomeTab from './AppTabNavigator/HomeTab';
+import CategoriesTab from './AppTabNavigator/CategoriesTab';
+import RecentTab from './AppTabNavigator/RecentTab';
+import SettingsTab from './AppTabNavigator/SettingsTab';
+import ActionScreen from './AppTabNavigator/CategoryOptions/ActionScreen'
+import {TabNavigator} from 'react-navigation';
+import { Icon, Container, Content, Header, Body, Button } from 'native-base';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 class MainScreen extends React.Component {
@@ -72,3 +74,5 @@ export default MainScreen
     justifyContent:'center'},
 
  });
+
+

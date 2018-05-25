@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, WebView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import MainScreen from './Components/MainScreen';
 
@@ -14,7 +14,8 @@ export default class App extends React.Component {
 }
 
 const AppStackNavigator = StackNavigator({
-Main: {screen: MainScreen}
+Main: {screen: MainScreen},
+Action: {screen: ActionScreen}
 })
 
  const styles = StyleSheet.create ({
@@ -25,3 +26,10 @@ Main: {screen: MainScreen}
 
 
  });
+
+
+const CategoriesStack = createStackNavigator({
+       Categories: CategoriesTab,
+       Action: ActionScreen,
+     });
+
