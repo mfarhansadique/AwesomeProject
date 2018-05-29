@@ -4,15 +4,21 @@ import {
   Text,
   StyleSheet,
   Button,
-  WebView
+  WebView,
+  HTML,
+  Header,
+  Body
 } from 'react-native';
 import { StackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
 class CategoryTab extends React.Component {
+static navigationOptions = {
+title: 'Categories',};
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
+      <View style={{ flex: 2,  justifyContent: 'center' }}>
+
+
         <Button
           title="Action"
           onPress={() => this.props.navigation.navigate('Action')}
@@ -40,10 +46,12 @@ class CategoryTab extends React.Component {
 }
 
 class ActionScreen extends React.Component {
+static navigationOptions = {
+title: 'Action',};
     render() {
       return (
         <WebView
-          source={{uri: 'http://www.mangadeep.com/manga-list/category/Action/most-popular/'}}
+          source={{uri: 'http://mangasupa.com/manga_list?type=latest&category=2&state=all&page=1'}}
           style={{marginTop: 20}}
         />
       );
@@ -51,10 +59,12 @@ class ActionScreen extends React.Component {
   }
 
 class MysteryScreen extends React.Component {
+static navigationOptions = {
+title: 'Mystery',};
     render() {
       return (
         <WebView
-          source={{uri: 'http://www.mangadeep.com/manga-list/category/Mystery/most-popular/'}}
+          source={{uri: 'http://mangasupa.com/manga_list?type=latest&category=24&state=all&page=1'}}
           style={{marginTop: 20}}
         />
       );
@@ -62,10 +72,12 @@ class MysteryScreen extends React.Component {
   }
 
   class ComedyScreen extends React.Component {
+  static navigationOptions = {
+  title: 'Comedy',};
       render() {
         return (
           <WebView
-            source={{uri: 'http://www.mangadeep.com/manga-list/category/Comedy/most-popular/'}}
+            source={{uri: 'http://mangasupa.com/manga_list?type=latest&category=6&state=all&page=1'}}
             style={{marginTop: 20}}
           />
         );
@@ -73,10 +85,12 @@ class MysteryScreen extends React.Component {
     }
 
     class FantasyScreen extends React.Component {
+    static navigationOptions = {
+    title: 'Fantasy',};
         render() {
           return (
             <WebView
-              source={{uri: 'http://www.mangadeep.com/manga-list/category/Fantasy/most-popular/'}}
+              source={{uri: 'http://mangasupa.com/manga_list?type=latest&category=12&state=all&page=1'}}
               style={{marginTop: 20}}
             />
           );
@@ -84,10 +98,12 @@ class MysteryScreen extends React.Component {
       }
 
       class AdventureScreen extends React.Component {
+      static navigationOptions = {
+      title: 'Adventure',};
           render() {
             return (
               <WebView
-                source={{uri: 'http://www.mangadeep.com/manga-list/category/Adventure/most-popular/'}}
+                source={{uri: 'http://mangasupa.com/manga_list?type=latest&category=4&state=all&page=1'}}
                 style={{marginTop: 20}}
               />
             );
@@ -105,13 +121,13 @@ const RootStack = StackNavigator(
     Mystery: {
           screen: MysteryScreen,
         },
-        Action: {
+        Comedy: {
               screen: ComedyScreen,
             },
-            Action: {
+             Fantasy: {
                   screen: FantasyScreen,
                 },
-                Action: {
+                Adventure: {
                       screen: AdventureScreen,
                     },
   },
