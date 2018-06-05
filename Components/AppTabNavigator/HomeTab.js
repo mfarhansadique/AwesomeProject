@@ -76,7 +76,27 @@ title: 'Home',};
 
 
                           {this.state.customStyleIndex === 1 &&
-                              <Text style={styles.tabContent} > Tab two</Text>}
+                             <View style = {{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around', padding: 20}}>
+                                                          <TouchableHighlight onPress={() => this.props.navigation.navigate('Star')}>
+                                                                                           <Image style={{width: 75, height: 125}} source={require('./star.png')} />
+                                                                                       </TouchableHighlight>
+                                                          <TouchableHighlight onPress={() => this.props.navigation.navigate('Bleach')}>
+                                                                                                                        <Image style={{width: 75, height: 125}} source={require('./bleach.png')} />
+                                                                                                                    </TouchableHighlight>
+                                                          <TouchableHighlight onPress={() => this.props.navigation.navigate('Hajime')}>
+                                                                                                                        <Image style={{width: 75, height: 125, marginBottom: 20}} source={require('./hajime.png')} />
+                                                                                                                    </TouchableHighlight>
+                                                          <TouchableHighlight onPress={() => this.props.navigation.navigate('Onepiece')}>
+                                                                                                                        <Image style={{width: 75, height: 125}} source={require('./onepiece.png')} />
+                                                                                                                    </TouchableHighlight>
+                                                          <TouchableHighlight onPress={() => this.props.navigation.navigate('Mythical')}>
+                                                                                                                        <Image style={{width: 75, height: 125}} source={require('./mythical.png')} />
+                                                                                                                    </TouchableHighlight>
+                                                          <TouchableHighlight onPress={() => this.props.navigation.navigate('Blackclover')}>
+                                                                                                                        <Image style={{width: 75, height: 125}} source={require('./blackclover.png')} />
+                                                                                                                    </TouchableHighlight>
+
+                                                          </View>}
 
 </View>
 
@@ -159,7 +179,84 @@ title: 'Enen no Shoubouthai',};
             }
 
 
+ class StarScreen extends React.Component{
+          static navigationOptions = {
+          title: 'Star Martial God Technique',};
+              render() {
+                return (
+                  <WebView
+                    source={{uri: 'http://mangasupa.com/manga/star_martial_god_technique'}}
+                    style={{marginTop: 20}}
+                  />
+                );
+              }
+            }
 
+    class BleachScreen extends React.Component{
+             static navigationOptions = {
+             title: 'Bleach',};
+                 render() {
+                   return (
+                     <WebView
+                       source={{uri: 'http://manganelo.com/manga/read_bleach_manga_online_for_free2'}}
+                       style={{marginTop: 20}}
+                     />
+                   );
+                 }
+                 }
+
+    class HajimeScreen extends React.Component{
+             static navigationOptions = {
+             title: 'Hajime no Ippo',};
+                 render() {
+                   return (
+                     <WebView
+                       source={{uri: 'http://mangasupa.com/manga/read_hajime_no_ippo_manga'}}
+                       style={{marginTop: 20}}
+                     />
+                   );
+                 }
+               }
+
+
+     class OnepieceScreen extends React.Component{
+              static navigationOptions = {
+              title: 'One Piece',};
+                  render() {
+                    return (
+                      <WebView
+                        source={{uri: 'http://manganelo.com/manga/read_one_piece_manga_online_free4'}}
+                        style={{marginTop: 20}}
+                      />
+                    );
+                  }
+                }
+
+     class MythicalScreen extends React.Component{
+              static navigationOptions = {
+              title: 'The Mythical Realm',};
+                  render() {
+                    return (
+                      <WebView
+                        source={{uri: 'http://mangasupa.com/manga/the_mythical_realm'}}
+                        style={{marginTop: 20}}
+                      />
+                    );
+                  }
+                }
+
+    class BlackcloverScreen extends React.Component{
+             static navigationOptions = {
+             title: 'Black Clover',};
+                 render() {
+                   return (
+                     <WebView
+                       source={{uri: 'http://manganelo.com/manga/black_clover'}}
+                       style={{marginTop: 20}}
+                     />
+                   );
+                 }
+               }
 
 
   const RootStack = StackNavigator(
@@ -185,6 +282,30 @@ title: 'Enen no Shoubouthai',};
       Sousei: {
                     screen: SouseiScreen,
                   },
+
+      Star: {
+                          screen: StarScreen,
+                        },
+
+      Bleach: {
+                          screen: BleachScreen,
+                        },
+
+      Hajime: {
+                          screen: HajimeScreen,
+                        },
+
+      Onepiece: {
+                          screen: OnepieceScreen,
+                        },
+
+      Mythical: {
+                          screen: MythicalScreen,
+                        },
+
+      Blackclover: {
+                          screen: BlackcloverScreen,
+                        },
 
     },
     {
