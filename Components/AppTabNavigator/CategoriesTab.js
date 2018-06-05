@@ -9,7 +9,7 @@ import {
   Header,
   Body
 } from 'react-native';
-import { StackNavigator } from 'react-navigation'; // Version can be specified in package.json
+import { StackNavigator } from 'react-navigation';
 
 class CategoryTab extends React.Component {
 static navigationOptions = {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, WebView } from 'react-native';
+import { AppRegistry, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import MainScreen from './Components/MainScreen';
 
@@ -25,4 +26,3 @@ Main: {screen: MainScreen}
 
 
  });
-

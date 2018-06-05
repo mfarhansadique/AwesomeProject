@@ -33,16 +33,16 @@ class MainScreen extends React.Component {
 
 export default MainScreen
   const AppTabNavigator = TabNavigator ({
-  HomeTab:{
+  Home:{
     screen: HomeTab
     },
-  CategoriesTab:{
+  Categories:{
      screen: CategoriesTab
     },
-  RecentTab:{
+  Recent:{
       screen: RecentTab
      },
-   SettingsTab:{
+   Settings:{
        screen: SettingsTab
      }
 
