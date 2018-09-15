@@ -1,28 +1,32 @@
-import React from 'react';
-import { StyleSheet, Text, View, WebView } from 'react-native';
-import { AppRegistry, Image } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import MainScreen from './Components/MainScreen';
+// Import the screens
+import Main from "./Components/Main";
+import Chat from "./Components/Chat";
+import Chats from "./Components/Chats";
 
-export default class App extends React.Component {
- render(){
- return(
-<AppStackNavigator />
+// Import React Navigation
+import { createStackNavigator } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation";
 
+// Create the navigator
+const MainStack = createStackNavigator({
+  Main: Main,
+  Chat: Chat
+});
 
- );
-}
-}
+const ChatsStack = createStackNavigator({
+  Chats: Chats,
+  Chat: Chat
+});
 
-const AppStackNavigator = StackNavigator({
-Main: {screen: MainScreen}
-})
-
- const styles = StyleSheet.create ({
-   container: {
-   flex: 1,
-   alignItems: 'center',
-   justifyContent:'center'},
-
-
- });
+export default createBottomTabNavigator(
+  {
+    //  Calls: CallsStack,
+    Main: MainStack,
+    // Camera: CameraStack,
+    Chats: ChatsStack
+    //  Settings: SettingsStack
+  },
+  {
+    /* Other configuration remains unchanged */
+  }
+);

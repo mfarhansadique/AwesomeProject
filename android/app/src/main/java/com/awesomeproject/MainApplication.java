@@ -3,6 +3,8 @@ package com.awesomeproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
+import com.wenkesj.voice.VoicePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -21,10 +23,12 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
-      );
-    }
+    return Arrays.asList(
+            new MainReactPackage(),
+            new VoicePackage(), 
+            new ReactVideoPackage()
+    );
+}
 
     @Override
     protected String getJSMainModuleName() {
